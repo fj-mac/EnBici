@@ -37,6 +37,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar/>
       <h1>Reacctive</h1>
       <div>{err}</div>
       {renderDocs()}
