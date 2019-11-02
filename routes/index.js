@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+const app = express();
 
 const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
@@ -9,8 +10,8 @@ router.get("/", function(req, res, next) {
 	res.render("index", { title: "Express" });
 });
 
-router.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+app.get('*', (request, response) => {
+  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 router.get("/data", (req, res) => {
