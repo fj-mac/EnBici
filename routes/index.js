@@ -10,8 +10,8 @@ router.get("/", function(req, res, next) {
 	res.render("index", { title: "Express" });
 });
 
-app.get('*', (request, response) => {
-  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
 
 router.get("/data", (req, res) => {
