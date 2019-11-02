@@ -10,7 +10,7 @@ router.get("/", function(req, res, next) {
 });
 
 app.get('/*', function(req, res) {
-    res.sendFile('index');
+    res.render("index", { title: "Express" });
 })
 
 router.get("/data", (req, res) => {
