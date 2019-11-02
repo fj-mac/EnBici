@@ -9,10 +9,6 @@ router.get("/", function(req, res, next) {
 	res.render("index", { title: "Express" });
 });
 
-app.get('/*', function(req, res) {
-    res.render("index", { title: "Express" });
-})
-
 router.get("/data", (req, res) => {
 	console.log("Get data");
 	myMongoLib.getDocs()
