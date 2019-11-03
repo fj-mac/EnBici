@@ -1,17 +1,16 @@
 import React from 'react';
-
+import Paseo from './Paseo.js';
 
 const Grupos =(props)=>{
 
-
-  const renderDocs = () => props.paseos.map(d => <div key={d.nombre}>{d.nombre} </div>)
-	
-	
+  const renderPaseos = () => props.paseos.map(d => <Paseo key={d.nombre} nombre ={d.nombre} ruta = {d.ruta} fecha = {d.fecha} puntoEncuentro = {d.puntoEncuentro} numInscritas = {d.numInscritas} />)
 	
   return(
       <div>
         <h1>Se esta mostrando Grupos</h1>
-        {renderDocs()}
+        <ul class="ListaPaseos">
+        	{renderPaseos()}
+        </ul>
       </div>
     )
 }
