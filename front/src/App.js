@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import NavBar from './Components/NavBar'
+
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './Components/Home'
 import Login from './Components/Login'
 import Grupos from './Components/Grupos'
+
 function App() {
   const [docs, setDocs] = useState([]);
   const [err, setErr] = useState("");
@@ -46,9 +48,13 @@ function App() {
       <Route path='/' component ={Homee}/>
       <Route path='/grupos' component ={Gruposs}/>
       <Route path='/login' component ={Loginn}/>
+
+    <div className="App">
+
       <h1>Reacctive</h1>
       <div>{err}</div>
       {renderDocs()}
+    </div>
     </div>
     </Switch>
     </Router>
