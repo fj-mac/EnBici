@@ -50,7 +50,7 @@ render(){
           </select>
         </div>
         <div className="form-group">
-            <label htmlFor="productName">Seleccione la fecha de inicio</label>
+            <label htmlFor="productName">Seleccione la fecha de inicio: </label>
             <input
               className="form-control"
               type="date"
