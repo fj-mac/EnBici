@@ -30,7 +30,8 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 myWSLib.setupWS(server);
-myMongoLib.listenToChanges(myWSLib.notifyAll);
+myMongoLib.listenToChangesDocs(myWSLib.notifyAll);
+myMongoLib.listenToChangesPaseos(myWSLib.notifyAll);
 
 server.listen(port);
 server.on("error", onError);

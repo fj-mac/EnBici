@@ -18,6 +18,13 @@ router.get("/data", (req, res) => {
 	.catch(err => res.send({err: true, msg: err}));
 });
 
+router.get("/paseos", (req, res) => {
+	console.log("Get Paseos");
+	myMongoLib.getPaseos()
+	.then(docs => res.send(docs))
+	.catch(err => res.send({err: true, msg: err}));
+});
+
 
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
