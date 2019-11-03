@@ -8,10 +8,10 @@ const NavBar =()=>{
         <a className="navbar-brand" href="/">Tu Mejor Ruta</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         </button>
-        <a className="navbar-brand" href="/Grupos">Grupos</a>
+        <a className="navbar-brand" href="/grupos">Grupos</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         </button>
-        <a className="navbar-brand" href="/Login">Login</a>
+        <a className="navbar-brand" href="/login">Login</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         </button>
     </nav>
