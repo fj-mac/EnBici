@@ -1,0 +1,27 @@
+#TablaPaseo {
+	width: 60%;
+	border-top: solid;
+	border-left: solid;
+	border-right: solid;
+	border-color: #000000;
+	background-color: #ffffff;
+}
+
+.row {
+	border-bottom: solid;
+	border-bottom-color: #000000;	
+}
+
+.col-md-4{
+	border-left: solid;
+	border-left-color: 	#000000;
+}
+
+#BotonInscribirse{
+	width: 100%;
+	background-color: #ffffff;
+	border: solid	;
+	border-color: #ffffff;
+	color: red;
+	font-weight: 	bolder;
+}
