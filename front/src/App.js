@@ -6,8 +6,9 @@ import Home from './Components/Home'
 import Login from './Components/Login'
 import Grupos from './Components/Grupos'
 import Crear from './Components/Crear'
+
 function App() {
-  const [docs, setDocs] = useState([]);
+  const [paseos, setPaseos] = useState([]);
   const [err, setErr] = useState("");
 
   useEffect(()=> {
@@ -19,46 +20,40 @@ function App() {
       console.log("Connected to ws");
 
       ws.onmessage = msg => {
-        setDocs(JSON.parse(msg.data));
+        setPaseos(JSON.parse(msg.data));
         console.log("Got ws data",msg);
       };
     };
 
-    fetch("data")
+    fetch("paseos")
       .then(res => res.json())
       .then( data => {
         if(data.err) {
           setErr(JSON.stringify(data.msg));
         }
         else{
-          setDocs(data);
+          setPaseos(data);
         }
       });
   },[]);
 
-  const renderDocs = () => docs.map(d => <div key={d.name}>{d.name} </div>)
-
+  const renderDocs = () => paseos.map(d => <div key={d.nombre}>{d.nombre} </div>)
 
   return (
     <Router>
-    <Switch>
-    <div className="App">
-    <div className="container">
-      <NavBar/>
-    </div>
-      <Route path='/' component ={Home} exact/>
-    <div className="container">
-      <Route path='/grupos' component ={Grupos}/>
-      <Route path='/login' component ={Login}/>
-      <Route path='/crear' component ={Crear}/>
-    <div className="App">
-      <h1>Reacctive</h1>
-      <div>{err}</div>
-      {renderDocs()}
-    </div>
-    </div>
-    </div>
-    </Switch>
+      <Switch>
+        <div className="App">
+          <div className="container">
+            <NavBar/>
+          </div>
+          <Route path='/' component ={Home} exact/>
+          <div className="container">
+            <Route path='/grupos' render = {(props) => <Grupos {...props} paseos = {paseos} />} />
+            <Route path='/login' component ={Login}/>
+            <Route path='/crear' component ={Crear}/>
+          </div>
+        </div>
+      </Switch>
     </Router>
 
   )
