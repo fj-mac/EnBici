@@ -11,9 +11,9 @@ function App() {
   const [err, setErr] = useState("");
 
   useEffect(()=> {
-    //const HOST = window.location.origin.replace(/^http/, 'ws');
-    //const ws = new WebSocket(HOST);
-    const ws = new WebSocket("ws://localhost:3001");
+    const HOST = window.location.origin.replace(/^http/, 'ws');
+    const ws = new WebSocket(HOST);
+    //const ws = new WebSocket("ws://localhost:3001");
     ws.onopen = () => {
       console.log("Connected to ws");
 
