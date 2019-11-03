@@ -44,7 +44,7 @@ function App() {
     <Switch>
     <div className="App">
       <NavBar/>
-      <Route path='/' component ={Home}/>
+      <Route path='/' component ={Home} exact/>
       <Route path='/grupos' component ={Grupos}/>
       <Route path='/login' component ={Login}/>
 
