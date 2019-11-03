@@ -1,9 +1,13 @@
 var express = require("express");
 var router = express.Router();
+const path=require('path');
 const app = express();
 
 const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
+
+
+app.use(express.static(path.join(__dirname, 'front/build')));
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
@@ -11,7 +15,7 @@ router.get("/", function(req, res, next) {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '/../front/build/index.html'));
 });
 
 router.get("/data", (req, res) => {
