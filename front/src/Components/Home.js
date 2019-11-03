@@ -1,11 +1,14 @@
 import React from 'react';
-
+import  './Home.css'
+import FormUsuario from './form'
 
 const Home =()=>{
   return(
-      <div>
-        <h1>Se esta mostrando Home</h1>
-      </div>
+    <div>
+      <div className="jumbotron"/>
+      <h1>Se esta mostrando Home</h1>
+      <FormUsuario/>
+    </div>
     )
 }
 export default Home;

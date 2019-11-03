@@ -42,21 +42,25 @@ function App() {
   return (
     <Router>
     <Switch>
+
     <div className="App">
+    <div class="container">
       <NavBar/>
+    </div>
       <Route path='/' component ={Home} exact/>
+    <div class="container">
       <Route path='/grupos' component ={Grupos}/>
       <Route path='/login' component ={Login}/>
-
     <div className="App">
-
       <h1>Reacctive</h1>
       <div>{err}</div>
       {renderDocs()}
     </div>
     </div>
+    </div>
     </Switch>
     </Router>
+
   )
 }
 function Gruposs(){
