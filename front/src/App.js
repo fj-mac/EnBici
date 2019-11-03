@@ -25,6 +25,8 @@ function App() {
       };
     };
 
+    getLocation();
+
     fetch("paseos")
       .then(res => res.json())
       .then( data => {
@@ -36,7 +38,21 @@ function App() {
         }
       });
   },[]);
-  
+
+  function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    } 
+  else {
+    console.log("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function showPosition(position) {
+    console.log("Latitude: " + position.coords.latitude +
+    " Longitude: " + position.coords.longitude);
+  }
+
   return (
     <Router>
       <Switch>
