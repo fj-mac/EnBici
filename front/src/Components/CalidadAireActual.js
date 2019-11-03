@@ -31,7 +31,7 @@ async showPosition(position){
     this.setState({latitud: position.coords.latitude});
     this.setState({longitud: position.coords.longitude})
 
-  const url='https://api.waqi.info/feed/geo:'+this.latitud+';'+this.longitud+'/?token=dff319f47044fe2a774b924e794aead02b2d5e12'
+  const url='https://api.waqi.info/feed/geo:'+this.state.latitud+';'+this.state.longitud+'/?token=dff319f47044fe2a774b924e794aead02b2d5e12'
   console.log('url'+url)
   const response=await fetch(url);
   const data=await response.json();
@@ -39,6 +39,7 @@ async showPosition(position){
   this.setState({calidadActual: data.data})
   this.setState({loading:false})
 }
+
 
 
 render(){
