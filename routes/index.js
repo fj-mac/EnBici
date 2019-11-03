@@ -7,16 +7,9 @@ const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
 
 
-app.use(express.static(path.join(__dirname, 'front/build')));
 
 /* GET home page. */
-router.get("/", function(req, res, next) {
-	res.render("index", { title: "Express" });
-});
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/front/build/index.html'));
-});
 
 router.get("/data", (req, res) => {
 	console.log("Get data");
@@ -25,5 +18,14 @@ router.get("/data", (req, res) => {
 	.catch(err => res.send({err: true, msg: err}));
 });
 
+
+router.get("/", function(req, res, next) {
+  res.render("index", { title: "Express" });
+});
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/front/build/index.html'));
+});
 
 module.exports = router;

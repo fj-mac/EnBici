@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import NavBar from './Components/NavBar'
-
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './Components/Home'
 import Login from './Components/Login'
@@ -45,9 +44,9 @@ function App() {
     <Switch>
     <div className="App">
       <NavBar/>
-      <Route path='/' component ={Homee}/>
-      <Route path='/grupos' component ={Gruposs}/>
-      <Route path='/login' component ={Loginn}/>
+      <Route path='/' component ={Home}/>
+      <Route path='/grupos' component ={Grupos}/>
+      <Route path='/login' component ={Login}/>
 
     <div className="App">
 
@@ -81,5 +80,6 @@ function Homee(){
     </div>
   );
 };
+
 
 export default App;
