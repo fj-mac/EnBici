@@ -5,61 +5,57 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './Components/Home'
 import Login from './Components/Login'
 import Grupos from './Components/Grupos'
-
+import Crear from './Components/Crear'
 function App() {
-  const [paseos, setPaseos] = useState([]);
+  const [docs, setDocs] = useState([]);
   const [err, setErr] = useState("");
 
   useEffect(()=> {
-    const HOST = window.location.origin.replace(/^http/, 'ws');
-    const ws = new WebSocket(HOST);
+    let HOST = window.location.origin.replace(/^http/, 'ws');
+    let ws = new WebSocket(HOST);
+
     //const ws = new WebSocket("ws://localhost:3001");
     ws.onopen = () => {
       console.log("Connected to ws");
 
       ws.onmessage = msg => {
-        setPaseos(JSON.parse(msg.data));
+        setDocs(JSON.parse(msg.data));
         console.log("Got ws data",msg);
       };
     };
 
-    fetch("paseos")
+    fetch("data")
       .then(res => res.json())
       .then( data => {
         if(data.err) {
           setErr(JSON.stringify(data.msg));
         }
         else{
-          setPaseos(data);
+          setDocs(data);
         }
       });
   },[]);
 
-  const renderDocs = () => paseos.map(d => <div key={d.nombre}>{d.nombre} </div>)
+  const renderDocs = () => docs.map(d => <div key={d.name}>{d.name} </div>)
 
 
   return (
     <Router>
     <Switch>
-
     <div className="App">
     <div class="container">
       <NavBar/>
     </div>
       <Route path='/' component ={Home} exact/>
-<<<<<<< HEAD
     <div class="container">
       <Route path='/grupos' component ={Grupos}/>
       <Route path='/login' component ={Login}/>
+      <Route path='/crear' component ={Crear}/>
     <div className="App">
       <h1>Reacctive</h1>
       <div>{err}</div>
       {renderDocs()}
     </div>
-=======
-      <Route path='/grupos' render = {(props) => <Grupos {...props} paseos = {paseos} />} />
-      <Route path='/login' component ={Login}/>
->>>>>>> a18c8646f23dd9e9a175c170ff86c3ba7a2a3fae
     </div>
     </div>
     </Switch>
@@ -67,27 +63,7 @@ function App() {
 
   )
 }
-function Gruposs(){
-  return(
-    <div>
-      <Grupos/>
-    </div>
-  );
-};
-function Loginn(){
-  return(
-    <div>
-      <Login/>
-    </div>
-  );
-};
-function Homee(){
-  return(
-    <div>
-      <Home/>
-    </div>
-  );
-};
+
 
 
 export default App;
