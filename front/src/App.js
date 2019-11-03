@@ -36,9 +36,7 @@ function App() {
         }
       });
   },[]);
-
-  const renderDocs = () => paseos.map(d => <div key={d.nombre}>{d.nombre} </div>)
-
+  
   return (
     <Router>
       <Switch>

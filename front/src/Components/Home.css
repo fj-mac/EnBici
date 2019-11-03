@@ -3,3 +3,9 @@
   background-size: cover;
   background-position: center bottom;
 }
+
+h1{
+		font-family: 'Pacifico', cursive;
+		text-align: center;
+		font-size: 400%	
+}

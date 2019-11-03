@@ -1,6 +1,7 @@
   
 import React from 'react';
 import Paseo from './Paseo.js';
+import './Grupos.css';
 
 const Grupos =(props)=>{
 
@@ -12,7 +13,10 @@ const Grupos =(props)=>{
 	
   return(
       <div>
-        <h1>Rutas Actuales</h1>
+        <div className = "titulo">
+          <h1>Rutas Actuales</h1>
+          <br/>
+        </div>
         <ul class="ListaPaseos">
         	{renderPaseos()}
         </ul>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import  './form.css'
 
 
 class form extends Component{
@@ -21,6 +21,9 @@ formatDate() {
 render(){
   return(
     <div>
+      <h1> Ingrese la información de su nuevo paseo </h1>
+      <br/>
+      <br/>
       <form>
         <div className="form-group">
           <label >Ingrese una pequeña descripción:</label>

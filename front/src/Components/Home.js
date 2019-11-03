@@ -8,9 +8,9 @@ const Home =()=>{
   return(
     <div>
       <div className="jumbotron"/>
-      <h1>Se esta mostrando Home</h1>
-      <Aire/>
-    </div>
+      	<h1>Bienvenidos a EnBici</h1>
+      	<Aire/>
+    	</div>
     )
 }
 export default Home;
