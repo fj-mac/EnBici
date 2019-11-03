@@ -20,7 +20,10 @@ async componentDidMount(){
 render(){
   return(
     <div>
-      {this.state.loading ? <div>Se esta cargando la informacion de la calidad del aire</div>:<div>{this.state.calidadActual.aqi}</div>}
+      {this.state.loading ? <div>Se esta cargando la informacion de la calidad del aire</div>:
+        <div>
+        Actualmente la calidad del aire en bogota es: {this.state.calidadActual.aqi}
+        </div>}
     </div>
     )
   }
