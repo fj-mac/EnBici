@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import NavBar from './Components/NavBar'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './Components/Home'
 import Login from './Components/Login'
 import Grupos from './Components/Grupos'
@@ -39,23 +39,41 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    <Router>
+    <Switch>
     <div className="App">
       <NavBar/>
-
-      <Switch>
-      <Route path='/' component ={Home} exact/>
-      <Route path='/grupos' component ={Grupos}/>
-      <Route path='/login' component ={Login}/>
-      </Switch>
-
-
+      <Route path='/' component ={Homee}/>
+      <Route path='/grupos' component ={Gruposs}/>
+      <Route path='/login' component ={Loginn}/>
       <h1>Reacctive</h1>
       <div>{err}</div>
       {renderDocs()}
     </div>
-    </BrowserRouter>
-  );
+    </Switch>
+    </Router>
+  )
 }
+function Gruposs(){
+  return(
+    <div>
+      <Grupos/>
+    </div>
+  );
+};
+function Loginn(){
+  return(
+    <div>
+      <Login/>
+    </div>
+  );
+};
+function Homee(){
+  return(
+    <div>
+      <Home/>
+    </div>
+  );
+};
 
 export default App;
