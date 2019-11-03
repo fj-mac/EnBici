@@ -20,7 +20,7 @@ function App() {
       };
     };
 
-    fet ch("data")
+    fetch("data")
       .then(res => res.json())
       .then( data => {
         if(data.err) {
