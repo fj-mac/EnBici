@@ -7,36 +7,35 @@ import Login from './Components/Login'
 import Grupos from './Components/Grupos'
 
 function App() {
-  const [docs, setDocs] = useState([]);
+  const [paseos, setPaseos] = useState([]);
   const [err, setErr] = useState("");
 
   useEffect(()=> {
-    let HOST = window.location.origin.replace(/^http/, 'ws');
-    let ws = new WebSocket(HOST);
-
+    const HOST = window.location.origin.replace(/^http/, 'ws');
+    const ws = new WebSocket(HOST);
     //const ws = new WebSocket("ws://localhost:3001");
     ws.onopen = () => {
       console.log("Connected to ws");
 
       ws.onmessage = msg => {
-        setDocs(JSON.parse(msg.data));
+        setPaseos(JSON.parse(msg.data));
         console.log("Got ws data",msg);
       };
     };
 
-    fetch("data")
+    fetch("paseos")
       .then(res => res.json())
       .then( data => {
         if(data.err) {
           setErr(JSON.stringify(data.msg));
         }
         else{
-          setDocs(data);
+          setPaseos(data);
         }
       });
   },[]);
 
-  const renderDocs = () => docs.map(d => <div key={d.name}>{d.name} </div>)
+  const renderDocs = () => paseos.map(d => <div key={d.nombre}>{d.nombre} </div>)
 
 
   return (
@@ -45,15 +44,8 @@ function App() {
     <div className="App">
       <NavBar/>
       <Route path='/' component ={Home} exact/>
-      <Route path='/grupos' component ={Grupos}/>
+      <Route path='/grupos' render = {(props) => <Grupos {...props} paseos = {paseos} />} />
       <Route path='/login' component ={Login}/>
-
-    <div className="App">
-
-      <h1>Reacctive</h1>
-      <div>{err}</div>
-      {renderDocs()}
-    </div>
     </div>
     </Switch>
     </Router>
