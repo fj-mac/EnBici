@@ -10,6 +10,7 @@ import Crear from './Components/Crear'
 function App() {
   const [paseos, setPaseos] = useState([]);
   const [err, setErr] = useState("");
+  const [usuario, setUsuario] = useState("null");
 
   useEffect(()=> {
     let HOST = window.location.origin.replace(/^http/, 'ws');
@@ -35,6 +36,20 @@ function App() {
         }
         else{
           setPaseos(data);
+        }
+      });
+
+    fetch("actual")
+      .then(res => res.json())
+      .then(data => {
+        if(data !== "No hay nada")
+        {
+          let json = JSON.parse(data);
+          setUsuario(json["actual"]);
+        }
+        else
+        {
+          setUsuario("No hay usuario");
         }
       });
   },[]);
@@ -67,6 +82,8 @@ function App() {
             <Route path='/crear' component ={Crear}/>
           </div>
           {err}
+
+          <p>Usuario: {usuario}</p>
         </div>
       </Switch>
     </Router>
