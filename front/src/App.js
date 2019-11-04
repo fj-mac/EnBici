@@ -66,6 +66,7 @@ function App() {
             <Route path='/login' component ={Login}/>
             <Route path='/crear' component ={Crear}/>
           </div>
+          {err}
         </div>
       </Switch>
     </Router>

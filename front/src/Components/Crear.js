@@ -1,5 +1,5 @@
 import React from 'react';
-import FormUsuario from './form'
+import FormUsuario from './Form'
 
 const Grupos =()=>{
 
