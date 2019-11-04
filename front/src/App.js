@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './Components/Home'
 import Login from './Components/Login'
+import LoginAgain from './Components/LoginAgain'
 import Grupos from './Components/Grupos'
 import Crear from './Components/Crear'
 
@@ -78,6 +79,7 @@ function App() {
             <Route path='logout' component ={Home}/>
             <Route path='/grupos' render = {(props) => <Grupos {...props} usuario = {usuario} paseos = {paseos} />} />
             <Route path='/login' component ={Login}/>
+            <Route path='/loginAgain' component ={LoginAgain}/>
             <Route path='/crear' render = {(props) => <Crear {...props} usuario = {usuario} />}/>
           {err}
           <p>Usuario: {usuario}</p>

@@ -34,7 +34,8 @@ router.post("/loginUsuario", async (req, res) => {
       res.redirect("/#");
     }
     else{
-      res.send("La contraseña es incorrecta");
+
+      res.redirect("/loginAgain");
     }
   }
   catch(error){

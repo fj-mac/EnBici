@@ -3,8 +3,6 @@ import Form from './Form';
 
 const Crear =(props)=>{
 
-
-
   return(
       <div>
         <Form usuario = {props.usuario}/>
