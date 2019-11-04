@@ -54,6 +54,12 @@ router.post("/users", async (req, res) => {
 			return res.status(400).send("Ya existe ese usuario");
 		}
 	try{
+		if(req.body.password[0] != req.body.password[1])
+		{
+			
+			res.redirect("/");
+			return res.status(400).send("Las contraseñas no coinciden");
+		}
 		console.log("Entra al try", req.body.password[0]);
 
 		const hashedPassword=await bcrypt.hash(req.body.password[0], 10);
@@ -61,6 +67,7 @@ router.post("/users", async (req, res) => {
 		const user={name: req.body.user, password: hashedPassword};
 		usuarios.push(user);
 		res.status(201).send();
+		res.redirect("/");
 	}
 	catch (error){
 		res.status(500).send(error);
@@ -78,7 +85,7 @@ router.post("/crearPaseo", function(req,res,next) {
 
   console.log("crearProducto", req.body);
   crearPaseo(req.body);
-    res.redirect("/");
+  res.redirect("/");  
 
 });
 
