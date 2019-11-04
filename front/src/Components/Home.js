@@ -4,7 +4,7 @@ import Aire from './CalidadAire'
 import AireActual from './CalidadAireActual'
 import Actual from './Actual'
 import Tabla from './Tabla'
-
+import Instrucciones from './Instrucciones'
 const Home =()=>{
 
   return(
@@ -16,8 +16,8 @@ const Home =()=>{
       	<h1 className = "tituloHome">Bienvenidos a EnBici</h1>
       	 <Aire/>
          <AireActual/>
-         <Actual/>
          <Tabla/>
+         <Instrucciones/>
         </div>
 
     	</div>
