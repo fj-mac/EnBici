@@ -24,7 +24,7 @@ router.post("/loginUsuario", async (req, res) => {
       console.log(JSON.stringify(req.body));
       console.log("No se pudo encontrar el usuario. El usuario ingresado fue: "+req.body.user+ " la clave ingresada fue: "+req.body.password);
 
-      return res.status(407).send();
+      return res  .send("No hay un usuario");
     }
     if(await bcrypt.compare(req.body.password, user.password)){
       res.send("Se ha iniciado exitosamente");
@@ -61,10 +61,6 @@ router.post("/users", async (req, res) => {
     return res.status(400).send("Ya existe ese usuario");
   }
   try{
-    //if(req.body.password[0] != req.body.password[1])
-    //{
-    //  return res.status(400).send("Las contraseñas no coinciden");
-    //}
     console.log("Entra al try", req.body.password[0]);
 
     const hashedPassword=await bcrypt.hash(req.body.password[0], 10);
