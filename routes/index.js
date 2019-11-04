@@ -54,10 +54,10 @@ router.post("/users", async (req, res) => {
 			return res.status(400).send("Ya existe ese usuario");
 		}
 	try{
-		if(req.body.password[0] != req.body.password[1])
-		{
-			return res.status(400).send("Las contraseñas no coinciden");
-		}
+		//if(req.body.password[0] != req.body.password[1])
+		//{
+		//	return res.status(400).send("Las contraseñas no coinciden");
+		//}
 		console.log("Entra al try", req.body.password[0]);
 
 		const hashedPassword=await bcrypt.hash(req.body.password[0], 10);
