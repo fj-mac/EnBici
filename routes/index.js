@@ -23,7 +23,7 @@ router.post("/loginUsuario", async (req, res) => {
 			console.log("este es el json");
 			console.log(JSON.stringify(req.body));
 			console.log("No se pudo encontrar el usuario. El usuario ingresado fue: "+req.body.user+ " la clave ingresada fue: "+req.body.password)
-		  
+
       return res.status(407).send();
     }
 		if(await bcrypt.compare(req.body.password, user.password)){
@@ -37,7 +37,7 @@ router.post("/loginUsuario", async (req, res) => {
 	catch(error){
 		res.status(500).send(error);
 	}
- 
+
 });
 
 router.get("/users", (req, res) => {
@@ -46,7 +46,7 @@ router.get("/users", (req, res) => {
 
 router.post("/users", async (req, res) => {
 
-	const user=usuarios.find(persona => persona.name == req.body.name);
+	const user=usuarios.find(persona => persona.name == req.body.user);
 		if(user!=null)
 		{
 			return res.status(400).send("Ya existe ese usuario");
@@ -54,7 +54,7 @@ router.post("/users", async (req, res) => {
 	try{
 		const hashedPassword=await bcrypt.hash(req.body.password, 10);
 		console.log(hashedPassword);
-		const user={name: req.body.name, password: hashedPassword};
+		const user={name: req.body.user, password: hashedPassword};
 		usuarios.push(user);
 		res.status(201).send();
 	}
