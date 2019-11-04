@@ -27,11 +27,11 @@ router.post("/loginUsuario", async (req, res) => {
       return res.status(407).send();
     }
     if(await bcrypt.compare(req.body.password, user.password)){
-      res.send("Se ha iniciado exitosamente");
       actual=JSON.stringify({
         actual:""+req.body.user
       });
       console.log(actual);
+      res.redirect("/#");
     }
     else{
       res.send("La contraseña es incorrecta");
