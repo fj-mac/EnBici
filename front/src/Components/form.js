@@ -45,7 +45,6 @@ render(){
         <div className="form-group">
           <label >Seleccione la cantidad máxima de personas:</label>
           <select className="form-control" name="numInscritas" id="exampleFormControlSelect1">
-            <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
