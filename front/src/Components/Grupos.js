@@ -7,7 +7,7 @@ const Grupos =(props)=>{
 
   const renderPaseos = () => props.paseos.map(d => 
   	<div>
-			<Paseo key={d.nombre} usuario = {props.usuario} nombre ={d.nombre} ruta = {d.ruta} fecha = {d.fecha} puntoEncuentro = {d.puntoEncuentro} numInscritas = {d.numInscritas} />
+			<Paseo key={d.nombre} capacidad = {d.capacidad} usuario = {props.usuario} nombre ={d.nombre} ruta = {d.ruta} fecha = {d.fecha} puntoEncuentro = {d.puntoEncuentro} numInscritas = {d.numInscritas} />
 			<br/>
   	</div>)
 	

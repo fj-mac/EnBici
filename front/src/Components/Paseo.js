@@ -2,6 +2,18 @@ import React from 'react';
 import './Paseo.css';
 
 const Paseo =(props)=>{
+
+	const inscribirse = () => {
+		props.numInscritas < props.capacidad ? 
+		fetch("/upDatePaseo", {
+			method:"POST",
+			body: {
+				nombre: props.nombre,
+				numInscritas: props.numInscritas,
+			},
+		}).then(console.log("Se inscribio")):
+		console.log("Se acabaron los cupos");
+	}
 	
   return(
       <div className = "container" id= "TablaPaseo">
@@ -15,7 +27,7 @@ const Paseo =(props)=>{
 						<p> Ruta: {props.ruta} </p>
 					</div>
 					<div className = "col-md-4">
-						<p> Participantes: {props.numInscritas} </p>
+						<p> Cupos disponibles: {props.capacidad-props.numInscritas} </p>
 					</div>  
 				</div>
 				<div className = "row">
@@ -29,7 +41,7 @@ const Paseo =(props)=>{
 					</div>
 					{props.usuario !== "No hay usuario"?
 					<div className = "col-md-4">
-						<button id="BotonInscribirse"> Inscribirse </button>
+						<button id="BotonInscribirse" onClick={inscribirse}> Inscribirse </button>
 					</div>:
 					<div className = "col-md-4">
 						<p> Debe iniciar sesión para inscribirse </p>

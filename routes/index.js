@@ -47,6 +47,10 @@ router.get("/users", (req, res) => {
   res.json(usuarios);
 });
 
+router.post("/upDatePaseo", function(req,res,next) {
+  myMongoLib.upDatePaseo(req.body);
+});
+
 
 router.get("/logout", (req, res) => {
   actual=JSON.stringify({

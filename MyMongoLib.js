@@ -57,6 +57,29 @@ const MyMongoLib = () => {
     });
   };
 
+  MyMongoLib.upDatePaseo = (user) => {
+    client.connect(function(err, client) {
+      if(err !== null) {
+        return err;
+      }
+      console.log("Connected correctly to server");
+
+      const db = client.db(dbName);
+
+      // Insert a single document
+      const testCol = db.collection("Paseos");
+      
+
+      testCol.find({nombre: user.nombreS}).toArray().then(data => impResultados(data));
+
+      function impResultados(data){
+        let num = data[0].numInscritas + 1;
+        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}} );
+        console.log(data[0]._id);
+      } 
+
+    });
+  };
 
 
   MyMongoLib.getPaseos = () => 
