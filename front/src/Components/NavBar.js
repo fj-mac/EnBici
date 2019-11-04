@@ -5,6 +5,9 @@ import './NavBar.css';
 
 const NavBar =(props)=>{
 
+function salir(){
+    fetch("/logout")
+}
 
   return(
       <div className = "NavBar">
@@ -21,7 +24,7 @@ const NavBar =(props)=>{
 
         {props.usuario!=="No hay usuario" ?
         <div>
-            <li className="navbar-brand"><Link to="/logout">LogOut</Link></li>
+            <li className="navbar-brand"><Link onClick={()=>salir()}>LogOut</Link></li>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             </button>
         </div>:

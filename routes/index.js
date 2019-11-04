@@ -24,7 +24,7 @@ router.post("/loginUsuario", async (req, res) => {
       console.log(JSON.stringify(req.body));
       console.log("No se pudo encontrar el usuario. El usuario ingresado fue: "+req.body.user+ " la clave ingresada fue: "+req.body.password);
 
-      return res  .send("No hay un usuario");
+      return res.send("No hay un usuario");
     }
     if(await bcrypt.compare(req.body.password, user.password)){
       actual=JSON.stringify({
@@ -52,11 +52,8 @@ router.get("/logout", (req, res) => {
   actual=JSON.stringify({
         actual:"No hay usuario"
       });
-  res.redirect("/#");
-});
-app.get("/logout", (req, res) => {
-  actual="No hay usuario"
-  res.redirect("/#");
+  console.log("ojo aca es"+ actual)
+  res.status(234).redirect("/login");
 });
 
 router.get("/actual", (req, res) => {
