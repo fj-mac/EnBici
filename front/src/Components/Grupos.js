@@ -13,8 +13,8 @@ const Grupos =(props)=>{
 	
   return(
       <div>
-        <div className = "titulo">
-          <h1>Rutas Actuales</h1>
+        <div >
+          <h1 className = "tituloGrupos">Rutas Actuales</h1>
           <br/>
         </div>
         <ul class="ListaPaseos">

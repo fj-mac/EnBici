@@ -21,7 +21,7 @@ formatDate() {
 render(){
   return(
     <div>
-      <h1> Ingrese la información de su nuevo paseo </h1>
+      <h1 className = "tituloForm"> Ingrese la información de su nuevo paseo </h1>
       <br/>
       <br/>
       <form action = "/crearPaseo" method = "POST">
