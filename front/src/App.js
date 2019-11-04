@@ -75,6 +75,7 @@ function App() {
           <div className="container">
             <NavBar usuario={usuario}/>
             <Route path='/' component ={Home} exact/>
+            <Route path='logout' component ={Home}/>
             <Route path='/grupos' render = {(props) => <Grupos {...props} usuario = {usuario} paseos = {paseos} />} />
             <Route path='/login' component ={Login}/>
             <Route path='/crear' render = {(props) => <Crear {...props} usuario = {usuario} />}/>

@@ -47,6 +47,18 @@ router.get("/users", (req, res) => {
   res.json(usuarios);
 });
 
+
+router.get("/logout", (req, res) => {
+  actual=JSON.stringify({
+        actual:"No hay usuario"
+      });
+  res.redirect("/#");
+});
+app.get("/logout", (req, res) => {
+  actual="No hay usuario"
+  res.redirect("/#");
+});
+
 router.get("/actual", (req, res) => {
   res.json(actual);
 });
