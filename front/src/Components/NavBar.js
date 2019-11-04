@@ -6,7 +6,7 @@ import './NavBar.css';
 const NavBar =(props)=>{
 
 function salir(){
-    fetch("/logout")
+    fetch("/logout").then(console.log("Ya hizo logout"))
 }
 
   return(

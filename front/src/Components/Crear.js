@@ -1,14 +1,14 @@
 import React from 'react';
-import Form from './form'
+import Form from './Form';
 
-const Grupos =()=>{
+const Crear =(props)=>{
 
 
 
   return(
       <div>
-        <Form/>
+        <Form usuario = {props.usuario}/>
       </div>
     )
 }
-export default Grupos;
+export default Crear;

@@ -50,10 +50,10 @@ router.get("/users", (req, res) => {
 
 router.get("/logout", (req, res) => {
   actual=JSON.stringify({
-        actual:"No hay usuario"
-      });
-  console.log("ojo aca es"+ actual)
-  res.status(234).redirect("/login");
+    actual:"No hay usuario"
+  });
+  console.log("ojo aca es"+ actual);
+  res.redirect("/login");
 });
 
 router.get("/actual", (req, res) => {

@@ -3,7 +3,12 @@ import  './Form.css'
 
 
 class Form extends Component{
-formatDate() {
+
+  constructor(props) {
+    super(props);
+  }
+
+  formatDate() {
     let d = new Date();
     let month = "" + (d.getMonth() + 1);
     let day = "" + d.getDate();
@@ -63,10 +68,12 @@ render(){
             required
           />
         </div>
+        <input type="hidden" name="user" value={this.props.usuario}/>
+
         <input className = "btn" type="submit" value="Enviar"></input>
       </form>
     </div>
     )
-}
+  } 
 }
 export default Form;
