@@ -18,6 +18,7 @@ const Home =()=>{
          <AireActual/>
          <Actual/>
          <Tabla/>
+        </div>
 
     	</div>
     )
