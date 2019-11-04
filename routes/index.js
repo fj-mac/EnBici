@@ -14,12 +14,13 @@ const usuarios=[]
 
 
 router.post("/users/login", async (req, res) => {
-	const user= await usuarios.find(persona => persona.name = req.body.name)
-	if(user==null)
-	{
-		return res.status(400).send("No se pudo encontrar el usuario")
-	}
+
 	try{
+		const user=usuarios.find(persona => persona.name = req.body.name)
+		if(user==null)
+		{
+			return res.status(400).send("No se pudo encontrar el usuario")
+		}
 		if(await bcrypt.compare(req.body.password, user.password)){
 			res.send('Se ha iniciado exitosamente')
 		}
@@ -27,8 +28,8 @@ router.post("/users/login", async (req, res) => {
 			res.send("La contraseña es incorrecta")
 		}
 	}
-	catch{
-		res.status(500).send()
+	catch(error){
+		res.status(500).send(error)
 	}
 });
 
@@ -44,8 +45,8 @@ router.post("/users", async (req, res) => {
 		usuarios.push(user)
 		res.status(201).send()
 	}
-	catch {
-		res.status(500).send()
+	catch (error){
+		res.status(500).send(error)
 	}
 });
 
