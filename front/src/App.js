@@ -73,11 +73,11 @@ function App() {
       <Switch>
         <div className="App">
           <div className="container">
-            <NavBar/>
+            <NavBar usuario={usuario}/>
             <Route path='/' component ={Home} exact/>
-            <Route path='/grupos' render = {(props) => <Grupos {...props} paseos = {paseos} />} />
+            <Route path='/grupos' render = {(props) => <Grupos {...props} usuario = {usuario} paseos = {paseos} />} />
             <Route path='/login' component ={Login}/>
-            <Route path='/crear' component ={Crear}/>
+            <Route path='/crear' render = {(props) => <Crear {...props} usuario = {usuario} />}/>
           {err}
           <p>Usuario: {usuario}</p>
           </div>

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-d
 import './NavBar.css';
 
 
-const NavBar =()=>{
+const NavBar =(props)=>{
   return(
       <div className = "NavBar">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
