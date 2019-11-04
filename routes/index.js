@@ -13,19 +13,19 @@ const usuarios=[]
 
 
 
-router.post("/users/login", async (req, res) => {
+router.post("/login", async (req, res) => {
 
   try{
-    const user=usuarios.find(persona => persona.name = req.body.name)
+    const user=usuarios.find(persona => persona.name = req.body.name);
     if(user==null)
     {
-      return res.status(400).send("No se pudo encontrar el usuario")
+      return res.status(400).send("No se pudo encontrar el usuario");
     }
     if(await bcrypt.compare(req.body.password, user.password)){
-      res.send('Se ha iniciado exitosamente')
+      res.send('Se ha iniciado exitosamente');
     }
     else{
-      res.send("La contraseña es incorrecta")
+      res.send("La contraseña es incorrecta");
     }
   }
   catch(error){
@@ -38,16 +38,22 @@ router.get("/users", (req, res) => {
 });
 
 router.post("/users", async (req, res) => {
-  try{
-    const hashedPassword=await bcrypt.hash(req.body.password, 10)
-    console.log(hashedPassword)
-    const user={name: req.body.name, password: hashedPassword}
-    usuarios.push(user)
-    res.status(201).send()
-  }
-  catch (error){
-    res.status(500).send(error)
-  }
+
+	const user=usuarios.find(persona => persona.name == req.body.name)
+		if(user!=null)
+		{
+			return res.status(400).send("Ya existe ese usuario")
+		}
+	try{
+		const hashedPassword=await bcrypt.hash(req.body.password, 10)
+		console.log(hashedPassword)
+		const user={name: req.body.name, password: hashedPassword}
+		usuarios.push(user)
+		res.status(201).send()
+	}
+	catch (error){
+		res.status(500).send(error)
+	}
 });
 
 router.get("/data", (req, res) => {
