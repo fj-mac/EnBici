@@ -65,6 +65,6 @@ render(){
       </form>
     </div>
     )
-  } 
+  }
 }
 export default Form;
