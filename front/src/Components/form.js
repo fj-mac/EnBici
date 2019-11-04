@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import  './form.css'
+import  './Form.css'
 
 
-class form extends Component{
+class Form extends Component{
 formatDate() {
     let d = new Date();
     let month = "" + (d.getMonth() + 1);
@@ -24,22 +24,22 @@ render(){
       <h1> Ingrese la información de su nuevo paseo </h1>
       <br/>
       <br/>
-      <form>
+      <form action = "/crearPaseo" method = "POST">
         <div className="form-group">
-          <label >Ingrese una pequeña descripción:</label>
-          <input className="form-control"   placeholder=" Ingrese descripción"/>
+          <label for="nombre" >Ingrese el nombre del paseo:</label>
+          <input className="form-control" type="text" name="nombre"  placeholder=" Ingrese nombre"/>
         </div>
         <div className="form-group">
           <label >Ingrese un punto de encuentro:</label>
-          <input className="form-control"   placeholder=" Ingrese punto de encuentro"/>
+          <input className="form-control" type="text" name="puntoEncuentro"  placeholder=" Ingrese punto de encuentro"/>
         </div>
         <div className="form-group">
           <label >Ingrese la descripción de la ruta:</label>
-          <input className="form-control"   placeholder=" Ingrese descripción de ruta"/>
+          <input className="form-control"  type="text" name="ruta" placeholder=" Ingrese descripción de ruta"/>
         </div>
         <div className="form-group">
           <label >Seleccione la cantidad máxima de personas:</label>
-          <select className="form-control" id="exampleFormControlSelect1">
+          <select className="form-control" name="numInscritas" id="exampleFormControlSelect1">
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -53,18 +53,20 @@ render(){
           </select>
         </div>
         <div className="form-group">
-            <label htmlFor="productName">Seleccione la fecha de inicio: </label>
-            <input
-              className="form-control"
-              type="date"
-              min={this.formatDate()}
-              ref="finishDate"
-              required
-            />
-          </div>
+          <label htmlFor="productName">Seleccione la fecha de inicio: </label>
+          <input
+            className="form-control"
+            name="fecha"
+            type="date"
+            min={this.formatDate()}
+            ref="finishDate"
+            required
+          />
+        </div>
+        <input className = "btn" type="submit" value="Enviar"></input>
       </form>
     </div>
     )
 }
 }
-export default form;
+export default Form;

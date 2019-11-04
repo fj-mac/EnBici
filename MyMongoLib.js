@@ -35,6 +35,30 @@ const MyMongoLib = () => {
       });
     });
 
+  MyMongoLib.crearPaseo = (content) => {
+    client.connect(function(err, client) {
+      if(err !== null) {
+        return err;
+      }
+      console.log("Connected correctly to server");
+
+      const db = client.db(dbName);
+
+      // Insert a single document
+      const testCol = db.collection("Paseos");
+      
+
+      testCol.insertOne(content, function(err){
+        if(err) throw err;
+        console.log("Inserto el paseo");
+        client.close();
+      });
+
+    });
+  };
+
+
+
   MyMongoLib.getPaseos = () => 
     new Promise((resolve, reject) => {
       client.connect(function(err, client) {
