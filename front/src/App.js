@@ -74,16 +74,13 @@ function App() {
         <div className="App">
           <div className="container">
             <NavBar/>
-          </div>
-          <Route path='/' component ={Home} exact/>
-          <div className="container">
+            <Route path='/' component ={Home} exact/>
             <Route path='/grupos' render = {(props) => <Grupos {...props} paseos = {paseos} />} />
             <Route path='/login' component ={Login}/>
             <Route path='/crear' component ={Crear}/>
-          </div>
           {err}
-
           <p>Usuario: {usuario}</p>
+          </div>
         </div>
       </Switch>
     </Router>

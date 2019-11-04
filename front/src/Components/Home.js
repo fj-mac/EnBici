@@ -11,12 +11,12 @@ const Home =()=>{
     <div>
       <div className="jumbotron"/>
       	<h1>Bienvenidos a EnBici</h1>
-        <div className="container">
+
       	 <Aire/>
          <AireActual/>
          <Actual/>
          <Tabla/>
-        </div>
+
     	</div>
     )
 }

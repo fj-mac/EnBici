@@ -1,11 +1,13 @@
 .jumbotron {
-  background-image: url("https://sportadictos.com/files/2014/02/Bicicleta-de-monta%C3%B1a.jpg");
+  background-image: url("https://www.exmoor-nationalpark.gov.uk/__data/assets/image/0009/559827/Road-cycling.jpg");
   background-size: cover;
-  background-position: center bottom;
-}
+  padding-top: 5%;
+  padding-bottom: 18%;
+
+  }
 
 h1{
 		font-family: 'Pacifico', cursive;
 		text-align: center;
-		font-size: 400%	
+		font-size: 400%
 }
