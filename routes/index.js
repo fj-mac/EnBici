@@ -65,7 +65,6 @@ router.post("/users", async (req, res) => {
 		const user={name: req.body.user, password: hashedPassword};
 		usuarios.push(user);
 		res.status(201).send();
-		res.redirect("/");
 	}
 	catch (error){
 		res.status(500).send(error);
