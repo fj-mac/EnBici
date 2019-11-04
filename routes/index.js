@@ -1,15 +1,15 @@
 var express = require("express");
 var router = express.Router();
-const path=require('path');
+const path=require("path");
 const app = express();
 
 const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
-const bcrypt=require('bcrypt')
+const bcrypt=require("bcrypt");
 
 
 
-const usuarios=[]
+const usuarios=[];
 
 
 
@@ -22,14 +22,14 @@ router.post("/login", async (req, res) => {
       return res.status(400).send("No se pudo encontrar el usuario");
     }
     if(await bcrypt.compare(req.body.password, user.password)){
-      res.send('Se ha iniciado exitosamente');
+      res.send("Se ha iniciado exitosamente");
     }
     else{
       res.send("La contraseña es incorrecta");
     }
   }
   catch(error){
-    res.status(500).send(error)
+    res.status(500).send(error);
   }
 });
 
@@ -39,20 +39,20 @@ router.get("/users", (req, res) => {
 
 router.post("/users", async (req, res) => {
 
-	const user=usuarios.find(persona => persona.name == req.body.name)
+	const user=usuarios.find(persona => persona.name == req.body.name);
 		if(user!=null)
 		{
-			return res.status(400).send("Ya existe ese usuario")
+			return res.status(400).send("Ya existe ese usuario");
 		}
 	try{
-		const hashedPassword=await bcrypt.hash(req.body.password, 10)
-		console.log(hashedPassword)
-		const user={name: req.body.name, password: hashedPassword}
-		usuarios.push(user)
-		res.status(201).send()
+		const hashedPassword=await bcrypt.hash(req.body.password, 10);
+		console.log(hashedPassword);
+		const user={name: req.body.name, password: hashedPassword};
+		usuarios.push(user);
+		res.status(201).send();
 	}
 	catch (error){
-		res.status(500).send(error)
+		res.status(500).send(error);
 	}
 });
 
@@ -92,8 +92,8 @@ router.get("/", function(req, res, next) {
 });
 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/front/build/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/front/build/index.html"));
 });
 
 module.exports = router;
