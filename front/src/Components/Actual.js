@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-
+import './Actual.css';
 
 
 class Aire extends Component{
@@ -17,8 +17,8 @@ async componentDidMount(){
 
 render(){
   return(
-    <div>
-      <h1>La actual es {this.state.actual}</h1>
+    <div >
+      <h2 className = "titulo">La actual es {this.state.actual}</h2>
     </div>
     )
   }

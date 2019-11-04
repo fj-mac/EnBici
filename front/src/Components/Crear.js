@@ -1,5 +1,5 @@
 import React from 'react';
-import FormUsuario from './Form'
+import Form from './Form'
 
 const Grupos =()=>{
 
@@ -7,7 +7,7 @@ const Grupos =()=>{
 
   return(
       <div>
-        <FormUsuario/>
+        <Form/>
       </div>
     )
 }
