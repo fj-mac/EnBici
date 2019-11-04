@@ -10,7 +10,7 @@ const bcrypt=require("bcrypt");
 
 
 const usuarios=[];
-
+const actual="No hay nada";
 
 
 router.post("/loginUsuario", async (req, res) => {
@@ -28,7 +28,10 @@ router.post("/loginUsuario", async (req, res) => {
     }
 		if(await bcrypt.compare(req.body.password, user.password)){
 			res.send("Se ha iniciado exitosamente");
-			console.log(req);
+      actual=JSON.stringify({
+          actual:""+req.body.user
+      })
+			console.log(actual);
 		}
 		else{
 			res.send("La contraseña es incorrecta");
@@ -42,6 +45,10 @@ router.post("/loginUsuario", async (req, res) => {
 
 router.get("/users", (req, res) => {
   res.json(usuarios);
+});
+
+router.get("/actual", (req, res) => {
+  res.json(actual);
 });
 
 router.post("/users", async (req, res) => {
@@ -64,7 +71,7 @@ router.post("/users", async (req, res) => {
 		console.log(hashedPassword);
 		const user={name: req.body.user, password: hashedPassword};
 		usuarios.push(user);
-		res.status(201).send();
+		res.redirect("/login");
 	}
 	catch (error){
 		res.status(500).send(error);
@@ -82,7 +89,7 @@ router.post("/crearPaseo", function(req,res,next) {
 
   console.log("crearProducto", req.body);
   crearPaseo(req.body);
-  res.redirect("/");  
+  res.redirect("/");
 
 });
 

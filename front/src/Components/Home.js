@@ -2,7 +2,8 @@ import React from 'react';
 import  './Home.css'
 import Aire from './CalidadAire'
 import AireActual from './CalidadAireActual'
-
+import Actual from './Actual'
+import Tabla from './Tabla'
 
 const Home =()=>{
 
@@ -13,6 +14,8 @@ const Home =()=>{
         <div className="container">
       	 <Aire/>
          <AireActual/>
+         <Actual/>
+         <Tabla/>
         </div>
     	</div>
     )
