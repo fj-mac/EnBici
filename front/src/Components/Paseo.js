@@ -27,9 +27,13 @@ const Paseo =(props)=>{
 					<div className = "col-md-8">
 						<p> Fecha: {props.fecha} </p>
 					</div>
+					{props.usuario !== "No hay usuario"?
 					<div className = "col-md-4">
 						<button id="BotonInscribirse"> Inscribirse </button>
-					</div>
+					</div>:
+					<div className = "col-md-4">
+						<p> Debe iniciar sesión para inscribirse </p>
+					</div>}
 				</div>
       </div>
     )
