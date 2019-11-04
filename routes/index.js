@@ -56,8 +56,6 @@ router.post("/users", async (req, res) => {
 	try{
 		if(req.body.password[0] != req.body.password[1])
 		{
-			
-			res.redirect("/");
 			return res.status(400).send("Las contraseñas no coinciden");
 		}
 		console.log("Entra al try", req.body.password[0]);
