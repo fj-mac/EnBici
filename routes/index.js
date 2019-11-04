@@ -13,10 +13,10 @@ const usuarios=[]
 
 
 
-router.post("/users/login", async (req, res) => {
+router.post("/login", async (req, res) => {
 
 	try{
-		const user=usuarios.find(persona => persona.name = req.body.name)
+		const user=usuarios.find(persona => persona.name == req.body.name)
 		if(user==null)
 		{
 			return res.status(400).send("No se pudo encontrar el usuario")
@@ -38,6 +38,11 @@ router.get("/users", (req, res) => {
 });
 
 router.post("/users", async (req, res) => {
+	const user=usuarios.find(persona => persona.name == req.body.name)
+		if(user!=null)
+		{
+			return res.status(400).send("Ya existe ese usuario")
+		}
 	try{
 		const hashedPassword=await bcrypt.hash(req.body.password, 10)
 		console.log(hashedPassword)
