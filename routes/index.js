@@ -13,47 +13,35 @@ const usuarios=[];
 
 
 
-router.post("/login", async (req, res) => {
+router.post("/loginUsuario", async (req, res) => {
+  console.log("Entra a loginusuario");
 	try{
-		const user=usuarios.find(persona => persona.name == req.body.name)
+    console.log("Entra al try", req.body);
+		const user=usuarios.find(persona => persona.name == req.body.user);
 		if(user==null)
 		{
-			return res.status(407).send()
-			console.log("este es el json")
-			console.log(JSON.stringify(req))
+			console.log("este es el json");
+			console.log(JSON.stringify(req.body));
 			console.log("No se pudo encontrar el usuario. El usuario ingresado fue: "+req.body.user+ " la clave ingresada fue: "+req.body.password)
-		}
+		  
+      return res.status(407).send();
+    }
 		if(await bcrypt.compare(req.body.password, user.password)){
-			res.send('Se ha iniciado exitosamente')
-			console.log(req)
+			res.send("Se ha iniciado exitosamente");
+			console.log(req);
 		}
 		else{
-			res.send("La contraseña es incorrecta")
+			res.send("La contraseña es incorrecta");
 		}
 	}
 	catch(error){
-		res.status(500).send(error)
+		res.status(500).send(error);
 	}
-  try{
-    const user=usuarios.find(persona => persona.name = req.body.name);
-    if(user==null)
-    {
-      return res.status(400).send("No se pudo encontrar el usuario");
-    }
-    if(await bcrypt.compare(req.body.password, user.password)){
-      res.send("Se ha iniciado exitosamente");
-    }
-    else{
-      res.send("La contraseña es incorrecta");
-    }
-  }
-  catch(error){
-    res.status(500).send(error);
-  }
+ 
 });
 
 router.get("/users", (req, res) => {
-  res.json(usuarios)
+  res.json(usuarios);
 });
 
 router.post("/users", async (req, res) => {
