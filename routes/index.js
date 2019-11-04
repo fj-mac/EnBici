@@ -5,11 +5,49 @@ const app = express();
 
 const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
+const bcrypt=require('bcrypt')
 
 
 
-/* GET home page. */
+const usuarios=[]
 
+
+
+router.post("/users/login", async (req, res) => {
+	const user= await usuarios.find(persona => persona.name = req.body.name)
+	if(user==null)
+	{
+		return res.status(400).send("No se pudo encontrar el usuario")
+	}
+	try{
+		if(await bcrypt.compare(req.body.password, user.password)){
+			res.send('Se ha iniciado exitosamente')
+		}
+		else{
+			res.send("La contraseña es incorrecta")
+		}
+	}
+	catch{
+		res.status(500).send()
+	}
+});
+
+router.get("/users", (req, res) => {
+	res.json(usuarios)
+});
+
+router.post("/users", async (req, res) => {
+	try{
+		const hashedPassword=await bcrypt.hash(req.body.password, 10)
+		console.log(hashedPassword)
+		const user={name: req.body.name, password: hashedPassword}
+		usuarios.push(user)
+		res.status(201).send()
+	}
+	catch {
+		res.status(500).send()
+	}
+});
 
 router.get("/data", (req, res) => {
 	console.log("Get data");
@@ -24,6 +62,7 @@ router.get("/paseos", (req, res) => {
 	.then(docs => res.send(docs))
 	.catch(err => res.send({err: true, msg: err}));
 });
+
 
 
 router.get("/", function(req, res, next) {
