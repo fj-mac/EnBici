@@ -10,13 +10,15 @@ const Home =()=>{
   return(
     <div>
       <div className="jumbotron"/>
-      	<h1 className = "tituloHome">Bienvenidos a EnBici</h1>
+
+
         <div className="container">
+      	<h1 className = "tituloHome">Bienvenidos a EnBici</h1>
       	 <Aire/>
          <AireActual/>
          <Actual/>
          <Tabla/>
-        </div>
+
     	</div>
     )
 }
