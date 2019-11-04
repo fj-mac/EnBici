@@ -45,14 +45,18 @@ router.get("/users", (req, res) => {
 });
 
 router.post("/users", async (req, res) => {
+	console.log("Entra en users ", req.body);
 
 	const user=usuarios.find(persona => persona.name == req.body.user);
+	console.log("User: ", user);
 		if(user!=null)
 		{
 			return res.status(400).send("Ya existe ese usuario");
 		}
 	try{
-		const hashedPassword=await bcrypt.hash(req.body.password, 10);
+		console.log("Entra al try", req.body.password[0]);
+
+		const hashedPassword=await bcrypt.hash(req.body.password[0], 10);
 		console.log(hashedPassword);
 		const user={name: req.body.user, password: hashedPassword};
 		usuarios.push(user);
