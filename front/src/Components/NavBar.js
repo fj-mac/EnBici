@@ -11,25 +11,25 @@ function salir(){
 
   return(
       <div className = "NavBar">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <li className="navbar-brand"><Link to="/">Tu Mejor Ruta</Link></li>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="navbar-brand"><Link to="/">Tu Mejor Ruta</Link></div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         </button>
-        <li className="navbar-brand"><Link to="/grupos">Grupos</Link></li>
+        <div className="navbar-brand"><Link to="/grupos">Grupos</Link></div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         </button>
-        <li className="navbar-brand"><Link to="/crear">Nuevo Grupo</Link></li>
+        <div className="navbar-brand"><Link to="/crear">Nuevo Grupo</Link></div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         </button>
 
         {props.usuario!=="No hay usuario" ?
         <div>
-            <li className="navbar-brand"><Link onClick={()=>salir()}>LogOut</Link></li>
+            <div className="navbar-brand"><Link onClick={()=>salir()}>LogOut</Link></div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             </button>
         </div>:
         <div>
-            <li className="navbar-brand"><Link to="/login">LogIn</Link></li>
+            <div className="navbar-brand"><Link to="/login">LogIn</Link></div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             </button>
         </div>}
