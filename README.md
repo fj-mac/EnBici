@@ -6,15 +6,17 @@
 
 ## Objetivo del proyecto 
 
-Dado el gran volumen de personas que juegan Bingo Fopre anualmente en la universidad de los Andes, el objetivo de este proyecto fue crear una aplicacion web interactiva de manera que se pudiese jugar en tiempo real y asi evitar los problemas de comunicacion que se presentan muchas veces durante el evento.
+Es una página que permite conectar a los interesados en compartir rutas en bicicleta. 
+Permite a los usuarios publicar rutas, con puntos de encuentro y recorrido. Así mismo los demás usuarios se pueden unir a las rutas mientras haya cupo. 
+Permite revisar la calidad del aire en tiempo real.
 
 ## Tecnologias usadas
 
 Se utilizó Nodejs, Express, React, Html, Css, Javascript.
+Librerias como bcrypt
 
 ## Screenshot
-FALTA
-![Captura](https://user-images.githubusercontent.com/25345623/66758662-57483100-ee64-11e9-9864-4f90badd4a1d.PNG)
+![Captura](https://raw.githubusercontent.com/fj-mac/EnBici/master/ThumbNail.PNG)
 
 ## Pre-requisitos
 ```
