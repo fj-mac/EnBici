@@ -7,7 +7,7 @@ const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
 const bcrypt=require("bcrypt");
 
-
+/*maria-ocampo: seria bueno modularizar el back, es decir, un archivo por cada una de las rutas*/
 
 const usuarios=[];
 let actual="No hay nada";
