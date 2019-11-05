@@ -12,15 +12,15 @@ function salir(){
   return(
       <div className = "NavBar">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="navbar-brand"><Link to="/">Tu Mejor Ruta</Link></div>
-        <div className="navbar-brand"><Link to="/grupos">Grupos</Link></div>
-        <div className="navbar-brand"><Link to="/crear">Nuevo Grupo</Link></div>
+        <div className="navbar-brand"><Link className="nombres" to="/">Tu Mejor Ruta</Link></div>
+        <div className="navbar-brand"><Link className="nombres" to="/grupos">Grupos</Link></div>
+        <div className="navbar-brand"><Link className="nombres" to="/crear">Nuevo Grupo</Link></div>
         {props.usuario!=="No hay usuario" ?
         <div>
-            <div className="navbar-brand"><Link onClick={()=>salir()}>LogOut</Link></div>
+            <div className="navbar-brand"><Link className="nombres" onClick={()=>salir()}>LogOut</Link></div>
         </div>:
         <div>
-            <div className="navbar-brand"><Link to="/login">LogIn</Link></div>
+            <div className="navbar-brand"><Link className="nombres" to="/login">LogIn</Link></div>
         </div>}
     </nav>
       </div>
