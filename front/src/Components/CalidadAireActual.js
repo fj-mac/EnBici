@@ -33,6 +33,7 @@ async showPosition(position){
 
   const url='https://api.waqi.info/feed/geo:'+this.state.latitud+';'+this.state.longitud+'/?token=dff319f47044fe2a774b924e794aead02b2d5e12'
   console.log('url'+url)
+  //No sobran estos logs?
   const response=await fetch(url);
   const data=await response.json();
   console.log(data.data.aqi);
