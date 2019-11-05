@@ -1,66 +1,63 @@
 {
-"status": "ok",
-"data": {
-"aqi": 119,
-"idx": 6236,
-"attributions": [
-{
-"url": "http://oab.ambientebogota.gov.co/",
-"name": "OAB - El Observatorio Ambiental de Bogot&aacute;"
-},
-{
-"url": "https://waqi.info/",
-"name": "World Air Quality Index Project"
-}
-],
-"city": {
-"geo": [
-4.5725,
--74.0836
-],
-"name": "San Cristobal, Bogota, Colombia",
-"url": "https://aqicn.org/city/colombia/bogota/san-cristobal"
-},
-"dominentpol": "pm25",
-"iaqi": {
-"co": {
-"v": 8.2
-},
-"no2": {
-"v": 14.7
-},
-"o3": {
-"v": 7.4
-},
-"p": {
-"v": 1026.4
-},
-"pm10": {
-"v": 11
-},
-"pm25": {
-"v": 119
-},
-"so2": {
-"v": 1.5
-},
-"t": {
-"v": 17.5
-},
-"w": {
-"v": 1.4
-},
-"wd": {
-"v": 81
-}
-},
-"time": {
-"s": "2019-11-02 11:00:00",
-"tz": "-05:00",
-"v": 1572692400
-},
-"debug": {
-"sync": "2019-11-03T02:15:55+09:00"
-}
-}
+  "status": "ok",
+  "data": {
+    "aqi": 119,
+    "idx": 6236,
+    "attributions": [
+      {
+        "url": "http://oab.ambientebogota.gov.co/",
+        "name": "OAB - El Observatorio Ambiental de Bogot&aacute;"
+      },
+      {
+        "url": "https://waqi.info/",
+        "name": "World Air Quality Index Project"
+      }
+    ],
+    "city": {
+      "geo": [4.5725, -74.0836],
+      "name": "San Cristobal, Bogota, Colombia",
+      "url": "https://aqicn.org/city/colombia/bogota/san-cristobal"
+    },
+    "dominentpol": "pm25",
+    "iaqi": {
+      "co": {
+        "v": 8.2
+      },
+      "no2": {
+        "v": 14.7
+      },
+      "o3": {
+        "v": 7.4
+      },
+      "p": {
+        "v": 1026.4
+      },
+      "pm10": {
+        "v": 11
+      },
+      "pm25": {
+        "v": 119
+      },
+      "so2": {
+        "v": 1.5
+      },
+      "t": {
+        "v": 17.5
+      },
+      "w": {
+        "v": 1.4
+      },
+      "wd": {
+        "v": 81
+      }
+    },
+    "time": {
+      "s": "2019-11-02 11:00:00",
+      "tz": "-05:00",
+      "v": 1572692400
+    },
+    "debug": {
+      "sync": "2019-11-03T02:15:55+09:00"
+    }
+  }
 }

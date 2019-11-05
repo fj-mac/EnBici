@@ -1,20 +1,20 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
-import NavBar from './Components/NavBar'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Home from './Components/Home'
-import Login from './Components/Login'
-import LoginAgain from './Components/LoginAgain'
-import Grupos from './Components/Grupos'
-import Crear from './Components/Crear'
-
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import NavBar from "./Components/NavBar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./Components/Home";
+import Login from "./Components/Login";
+import LoginAgain from "./Components/LoginAgain";
+import Grupos from "./Components/Grupos";
+import Crear from "./Components/Crear";
+//Les recomiendo organizar la estructura de los archivos.
 function App() {
   const [paseos, setPaseos] = useState([]);
   const [err, setErr] = useState("");
   const [usuario, setUsuario] = useState("null");
 
-  useEffect(()=> {
-    let HOST = window.location.origin.replace(/^http/, 'ws');
+  useEffect(() => {
+    let HOST = window.location.origin.replace(/^http/, "ws");
     let ws = new WebSocket(HOST);
 
     //const ws = new WebSocket("ws://localhost:3001");
@@ -23,7 +23,7 @@ function App() {
 
       ws.onmessage = msg => {
         setPaseos(JSON.parse(msg.data));
-        console.log("Got ws data",msg);
+        console.log("Got ws data", msg);
       };
     };
 
@@ -31,11 +31,10 @@ function App() {
 
     fetch("paseos")
       .then(res => res.json())
-      .then( data => {
-        if(data.err) {
+      .then(data => {
+        if (data.err) {
           setErr(JSON.stringify(data.msg));
-        }
-        else{
+        } else {
           setPaseos(data);
         }
       });
@@ -43,30 +42,30 @@ function App() {
     fetch("actual")
       .then(res => res.json())
       .then(data => {
-        if(data !== "No hay nada")
-        {
+        if (data !== "No hay nada") {
           let json = JSON.parse(data);
           setUsuario(json["actual"]);
-        }
-        else
-        {
+        } else {
           setUsuario("No hay usuario");
         }
       });
-  },[]);
+  }, []);
 
   function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else {
-    console.log("Geolocation is not supported by this browser.");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
     }
   }
-
+  //Esto no sobra?
   function showPosition(position) {
-    console.log("Latitude: " + position.coords.latitude +
-    " Longitude: " + position.coords.longitude);
+    console.log(
+      "Latitude: " +
+        position.coords.latitude +
+        " Longitude: " +
+        position.coords.longitude
+    );
   }
 
   return (
@@ -74,21 +73,26 @@ function App() {
       <Switch>
         <div className="App">
           <div className="container">
-            <NavBar usuario={usuario}/>
-            <Route path='/' component ={Home} exact/>
-            <Route path='logout' component ={Home}/>
-            <Route path='/grupos' render = {(props) => <Grupos {...props} usuario = {usuario} paseos = {paseos} />} />
-            <Route path='/login' component ={Login}/>
-            <Route path='/loginAgain' component ={LoginAgain}/>
-            <Route path='/crear' render = {(props) => <Crear {...props} usuario = {usuario} />}/>
+            <NavBar usuario={usuario} />
+            <Route path="/" component={Home} exact />
+            <Route path="logout" component={Home} />
+            <Route
+              path="/grupos"
+              render={props => (
+                <Grupos {...props} usuario={usuario} paseos={paseos} />
+              )}
+            />
+            <Route path="/login" component={Login} />
+            <Route path="/loginAgain" component={LoginAgain} />
+            <Route
+              path="/crear"
+              render={props => <Crear {...props} usuario={usuario} />}
+            />
           </div>
         </div>
       </Switch>
     </Router>
-
-  )
+  );
 }
-
-
 
 export default App;
