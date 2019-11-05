@@ -44,7 +44,7 @@ render(){
         </div>
         <div className="form-group">
           <label >Seleccione la cantidad máxima de personas:</label>
-          <input className="form-control" type = "number" name="capacidad" />
+          <input className="form-control" type = "number" name="capacidad" placeholder="Ingrese la capacidad máxima"/>
         </div>
         <div className="form-group">
           <label htmlFor="productName">Seleccione la fecha de inicio: </label>
@@ -59,7 +59,7 @@ render(){
         </div>
         <input type="hidden" name="user" value={this.props.usuario}/>
 
-        <input type="hidden number" name="numInscritas" value="0"/>
+        <input type="hidden" name="numInscritas" value="0"/>
 
         <input className = "btn" type="submit" value="Enviar"></input>
       </form>

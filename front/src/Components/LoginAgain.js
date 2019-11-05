@@ -40,7 +40,7 @@ class Login extends React.Component {
 render() {
   return(
       <div>
-        <h1>Inicia sesión para compartir tus paseos</h1>
+        <h1 className ="TituloLogin">Inicia sesión para compartir tus paseos</h1>
         {this.state.Login ?
           <div>
             <form action="/users" method = "POST">

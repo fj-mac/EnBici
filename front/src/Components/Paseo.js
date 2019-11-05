@@ -16,7 +16,7 @@ const Paseo =(props)=>{
 	}
 	
   return(
-      <div className = "container" id= "TablaPaseo">
+      <div className = "container TablaPaseo">
       	<div className = "row">
       		<div className = "col-md-12">
 						<p> {props.nombre} </p>

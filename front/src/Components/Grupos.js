@@ -17,9 +17,9 @@ const Grupos =(props)=>{
           <h1 className = "tituloGrupos">Rutas Actuales</h1>
           <br/>
         </div>
-        <ul class="ListaPaseos">
+        <div class="ListaPaseos">
         	{renderPaseos()}
-        </ul>
+        </div>
       </div>
     )
 }

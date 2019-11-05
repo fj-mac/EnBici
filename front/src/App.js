@@ -81,8 +81,6 @@ function App() {
             <Route path='/login' component ={Login}/>
             <Route path='/loginAgain' component ={LoginAgain}/>
             <Route path='/crear' render = {(props) => <Crear {...props} usuario = {usuario} />}/>
-          {err}
-          <p>Usuario: {usuario}</p>
           </div>
         </div>
       </Switch>
