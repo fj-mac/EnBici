@@ -14,10 +14,10 @@ function App() {
   const [usuario, setUsuario] = useState("null");
 
   useEffect(()=> {
-    //let HOST = window.location.origin.replace(/^http/, 'ws');
-    //let ws = new WebSocket(HOST);
+    let HOST = window.location.origin.replace(/^http/, 'ws');
+    let ws = new WebSocket(HOST);
 
-    const ws = new WebSocket("ws://localhost:3001");
+    //const ws = new WebSocket("ws://localhost:3001");
     ws.onopen = () => {
       console.log("Connected to ws");
 
